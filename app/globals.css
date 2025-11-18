@@ -3,24 +3,59 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #0095eb;
+  --primary-dark: #0077be;
+  --primary-light: #33aaef;
+  --accent: #6dd400;
+  --accent-light: #8ae426;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-600: #4b5563;
+  --gray-800: #1f2937;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-600: var(--gray-600);
+  --color-gray-800: var(--gray-800);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle background pattern */
+.bg-pattern {
+  background-image: 
+    radial-gradient(circle at 20px 20px, rgba(0, 149, 235, 0.03) 1px, transparent 0),
+    radial-gradient(circle at 60px 60px, rgba(0, 149, 235, 0.03) 1px, transparent 0);
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+}
+
+.bg-pattern-dots {
+  background-image: radial-gradient(circle, rgba(0, 149, 235, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-gradient-subtle {
+  background: linear-gradient(135deg, rgba(0, 149, 235, 0.02) 0%, rgba(109, 212, 0, 0.02) 100%);
 }
