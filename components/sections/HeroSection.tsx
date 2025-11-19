@@ -8,24 +8,30 @@ import { DollarSign, Sparkles, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
-// Generate random values outside component
-const generateParticles = () =>
-  [...Array(15)].map(() => ({
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    duration: 3 + Math.random() * 4,
-    delay: Math.random() * 2,
-  }));
-
-const particlesData = generateParticles();
+// Static particles array - same values for server and client
+const particles = [
+  { left: 21.54, top: 42.74, duration: 5.2, delay: 0.8 },
+  { left: 47.28, top: 28.45, duration: 6.1, delay: 1.3 },
+  { left: 42.05, top: 77.35, duration: 4.8, delay: 0.5 },
+  { left: 75.15, top: 78.42, duration: 5.9, delay: 1.7 },
+  { left: 9.69, top: 73.16, duration: 4.3, delay: 0.2 },
+  { left: 19.91, top: 36.23, duration: 6.5, delay: 1.1 },
+  { left: 15.33, top: 81.9, duration: 5.5, delay: 0.9 },
+  { left: 61.2, top: 0.02, duration: 4.7, delay: 1.5 },
+  { left: 42.88, top: 86.8, duration: 6.3, delay: 0.4 },
+  { left: 87.3, top: 49.27, duration: 5.1, delay: 1.8 },
+  { left: 47.49, top: 16.18, duration: 4.9, delay: 0.6 },
+  { left: 77.03, top: 73.79, duration: 6.7, delay: 1.2 },
+  { left: 22.28, top: 37.28, duration: 5.4, delay: 0.3 },
+  { left: 54.33, top: 21.7, duration: 4.6, delay: 1.4 },
+  { left: 58.41, top: 45.64, duration: 5.8, delay: 0.7 },
+];
 
 export default function HeroSection() {
   const [balance, setBalance] = useState<string>("");
   const [isFocused, setIsFocused] = useState(false);
   const cardRef = useRef(null);
-  const isCardInView = useInView(cardRef, { once: true, amount: 0.3 });
-
-  // Calculate refund directly from balance, no need for separate state
+  const isCardInView = useInView(cardRef, { once: true, amount: 0.3 }); // Calculate refund directly from balance, no need for separate state
   const numBalance = parseFloat(balance.replace(/,/g, "")) || 0;
   const refund = numBalance * 0.15;
 
@@ -100,7 +106,7 @@ export default function HeroSection() {
       />
 
       {/* Floating particles */}
-      {particlesData.map((particle, i) => (
+      {particles.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute w-2 h-2 bg-[#0095eb]/20 rounded-full"
