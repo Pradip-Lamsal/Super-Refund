@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
 export default function ContactSection() {
@@ -14,57 +13,50 @@ export default function ContactSection() {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#6dd400]/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* CTA Section with Image */}
+        {/* CTA Banner */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative mb-20"
+          className="relative"
         >
-          <div className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl">
-            {/* Decorative circles */}
-            <div className="absolute top-20 right-10 w-24 h-24 bg-[#6dd400] rounded-full opacity-60 blur-sm" />
-            <div className="absolute top-40 right-32 w-16 h-16 bg-[#6dd400] rounded-full opacity-40" />
-            <div className="absolute bottom-20 left-10 w-20 h-20 bg-[#6dd400]/20 rounded-full" />
-            <div className="absolute bottom-32 left-32 w-12 h-12 bg-[#6dd400]/30 rounded-full" />
-
-            <div className="relative h-[500px]">
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative h-[200px] md:h-[250px]">
               <Image
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&h=600&fit=crop"
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&h=300&fit=crop"
                 alt="Quick and easy refund"
                 fill
                 className="object-cover"
               />
 
               {/* Overlay content */}
-              <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-transparent flex items-center">
-                <div className="container mx-auto px-8">
-                  <div className="max-w-xl space-y-6">
+              <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-transparent flex items-center">
+                <div className="container mx-auto px-8 md:px-12">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
                     <motion.h2
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.2, duration: 0.6 }}
-                      className="text-5xl md:text-6xl font-bold text-white"
+                      className="text-4xl md:text-5xl lg:text-6xl font-bold text-white"
                     >
-                      Quick & easy
-                      <br />
-                      Refund
+                      Quick & Easy Refund
                     </motion.h2>
 
                     <motion.div
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.4, duration: 0.6 }}
+                      className="shrink-0"
                     >
                       <Button
                         size="xl"
                         variant="accent"
-                        className="text-xl px-12"
+                        className="text-xl px-12 whitespace-nowrap"
                       >
-                        Apply now
+                        Apply Now
                       </Button>
                     </motion.div>
                   </div>
@@ -73,59 +65,7 @@ export default function ContactSection() {
             </div>
           </div>
         </motion.div>
-
-        {/* Contact Information */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto space-y-8 text-center"
-        >
-          <div className="space-y-6">
-            <motion.a
-              href="tel:+61024601988"
-              whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-3 text-3xl md:text-4xl font-bold text-[#0f6f3a] hover:text-[#0095eb] transition-colors"
-            >
-              <Phone className="w-10 h-10" />
-              +61 (02) 4601 1988
-            </motion.a>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-center justify-center gap-3 text-xl text-gray-700"
-            >
-              <MapPin className="w-6 h-6 text-[#0095eb]" />
-              <span>Suite Q1291 LG 44 MARKET STREET Sydney, NSW</span>
-            </motion.div>
-
-            <motion.a
-              href="mailto:info@ebta.com.au"
-              whileHover={{ scale: 1.02 }}
-              className="inline-flex items-center gap-3 text-xl text-[#0095eb] hover:text-[#0077be] transition-colors"
-            >
-              <Mail className="w-6 h-6" />
-              info@ebta.com.au
-            </motion.a>
-          </div>
-        </motion.div>
       </div>
-
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-        className="mt-20 pt-8 border-t border-gray-200 relative z-10"
-      >
-        <div className="container mx-auto px-4">
-          <p className="text-center text-gray-600">
-            © 2021 Refund My Super. All Rights Reserved. Alpas Technology
-          </p>
-        </div>
-      </motion.footer>
     </section>
   );
 }

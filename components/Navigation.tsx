@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import TermsConditionsDialog from "@/components/TermsConditionsDialog";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
@@ -10,9 +10,7 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "How it works", href: "#how-it-works" },
   { label: "Superannuation", href: "#superannuation" },
-  { label: "Apply now", href: "#apply", highlight: true },
   { label: "FAQ", href: "#faq" },
-  { label: "Terms and Conditions", href: "#terms" },
 ];
 
 export default function Navigation() {
@@ -56,7 +54,7 @@ export default function Navigation() {
               isScrolled ? "h-16" : "h-24"
             }`}
           >
-            {/* Logo */}
+            {/* Logo - Left side */}
             <motion.a
               href="#home"
               onClick={(e) => {
@@ -66,7 +64,7 @@ export default function Navigation() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={`relative transition-all duration-300 ${
-                isScrolled ? "w-40 h-10" : "w-52 h-14"
+                isScrolled ? "w-28 h-8" : "w-36 h-10"
               }`}
             >
               <Image
@@ -91,27 +89,29 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
                 >
-                  {link.highlight ? (
-                    <Button
-                      variant="accent"
-                      size={isScrolled ? "sm" : "default"}
-                      onClick={() => scrollToSection(link.href)}
-                      className="mx-1 transition-all duration-300"
-                    >
-                      {link.label}
-                    </Button>
-                  ) : (
-                    <button
-                      onClick={() => scrollToSection(link.href)}
-                      className={`transition-all duration-300 font-medium text-gray-700 hover:text-[#0095eb] rounded-lg hover:bg-gray-50 ${
-                        isScrolled ? "px-3 py-2 text-sm" : "px-4 py-2 text-base"
-                      }`}
-                    >
-                      {link.label}
-                    </button>
-                  )}
+                  <button
+                    onClick={() => scrollToSection(link.href)}
+                    className={`transition-all duration-300 font-medium text-gray-700 hover:text-[#0095eb] rounded-lg hover:bg-gray-50 ${
+                      isScrolled ? "px-3 py-2 text-sm" : "px-4 py-2 text-base"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
                 </motion.div>
               ))}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
+              >
+                <TermsConditionsDialog
+                  triggerText="T&C"
+                  triggerVariant="ghost"
+                  triggerClassName={`transition-all duration-300 font-medium text-gray-700 hover:text-[#0095eb] hover:bg-gray-50 ${
+                    isScrolled ? "px-3 py-2 text-sm" : "px-4 py-2 text-base"
+                  }`}
+                />
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -146,29 +146,55 @@ export default function Navigation() {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {link.highlight ? (
-                      <Button
-                        variant="accent"
-                        onClick={() => scrollToSection(link.href)}
-                        className="w-full justify-start"
-                      >
-                        {link.label}
-                      </Button>
-                    ) : (
-                      <button
-                        onClick={() => scrollToSection(link.href)}
-                        className="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[#0095eb] rounded-lg transition-colors font-medium"
-                      >
-                        {link.label}
-                      </button>
-                    )}
+                    <button
+                      onClick={() => scrollToSection(link.href)}
+                      className="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[#0095eb] rounded-lg transition-colors font-medium"
+                    >
+                      {link.label}
+                    </button>
                   </motion.div>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-full"
+                >
+                  <TermsConditionsDialog
+                    triggerText="T&C"
+                    triggerVariant="ghost"
+                    triggerClassName="w-full justify-start text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[#0095eb] rounded-lg transition-colors font-medium"
+                  />
+                </motion.div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
     </motion.nav>
+  );
+}
+
+// Fixed "Apply now" button at bottom right
+export function ApplyNowButton() {
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <motion.button
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => scrollToSection("#apply")}
+      className="fixed bottom-8 right-8 z-40 px-6 py-3 bg-[#6dd400] hover:bg-[#5bc300] text-white font-semibold rounded-full shadow-lg transition-colors duration-300"
+    >
+      Apply now
+    </motion.button>
   );
 }
