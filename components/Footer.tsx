@@ -162,7 +162,15 @@ export default function Footer() {
           {/* Copyright */}
           <p className="text-center md:text-left text-gray-600">
             &copy; {new Date().getFullYear()} Refund My Super. All rights
-            reserved. Dobaato Info Tech Pvt Ltd.
+            reserved.{" "}
+            <a
+              href="https://dobaato.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#0095eb] transition-colors"
+            >
+              Dobaato Info Tech Pvt Ltd.
+            </a>
           </p>
         </div>
       </div>

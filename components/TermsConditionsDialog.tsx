@@ -3,10 +3,8 @@
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -411,23 +409,6 @@ export default function TermsConditionsDialog({
             </DialogDescription>
           </div>
         </DialogHeader>
-        <DialogFooter className="border-t px-6 py-4 sm:items-center">
-          {!hasReadToBottom && (
-            <span className="text-muted-foreground grow text-xs max-sm:text-center">
-              Read all terms before accepting.
-            </span>
-          )}
-          <DialogClose asChild>
-            <Button type="button" variant="outline">
-              Close
-            </Button>
-          </DialogClose>
-          <DialogClose asChild>
-            <Button type="button" disabled={!hasReadToBottom}>
-              I Agree
-            </Button>
-          </DialogClose>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
