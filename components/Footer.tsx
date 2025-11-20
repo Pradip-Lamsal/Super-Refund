@@ -4,16 +4,7 @@ import {
   FooterBackgroundGradient,
   TextHoverEffect,
 } from "@/components/ui/hover-footer";
-import {
-  Facebook,
-  Globe,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-} from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
 export default function Footer() {
@@ -24,13 +15,12 @@ export default function Footer() {
       links: [
         { label: "Home", href: "#home" },
         { label: "How It Works", href: "#how-it-works" },
-        { label: "FAQ", href: "#faq" },
       ],
     },
     {
       title: "Support",
       links: [
-        { label: "Contact Us", href: "#contact" },
+        { label: "FAQ", href: "#faq" },
         { label: "Apply Now", href: "#apply" },
       ],
     },
@@ -52,15 +42,6 @@ export default function Footer() {
       icon: <MapPin size={18} className="text-[#0095eb]" />,
       text: "Suite Q1291 LG 44 MARKET STREET Sydney, NSW",
     },
-  ];
-
-  // Social media icons
-  const socialLinks = [
-    { icon: <Facebook size={20} />, label: "Facebook", href: "#" },
-    { icon: <Instagram size={20} />, label: "Instagram", href: "#" },
-    { icon: <Twitter size={20} />, label: "Twitter", href: "#" },
-    { icon: <Linkedin size={20} />, label: "LinkedIn", href: "#" },
-    { icon: <Globe size={20} />, label: "Website", href: "#" },
   ];
 
   return (
@@ -140,44 +121,27 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
-        <hr className="border-t border-gray-200 my-8" />
-
-        {/* Footer bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
-          {/* Social icons */}
-          <div className="flex space-x-6 text-gray-400">
-            {socialLinks.map(({ icon, label, href }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                className="hover:text-[#0095eb] transition-colors"
-              >
-                {icon}
-              </a>
-            ))}
-          </div>
-
-          {/* Copyright */}
-          <p className="text-center md:text-left text-gray-600">
-            &copy; {new Date().getFullYear()} Refund My Super. All rights
-            reserved.{" "}
-            <a
-              href="https://dobaato.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#0095eb] transition-colors"
-            >
-              Dobaato Info Tech Pvt Ltd.
-            </a>
-          </p>
-        </div>
       </div>
 
       {/* Text hover effect */}
       <div className="lg:flex hidden h-96 -mt-44 -mb-28">
         <TextHoverEffect text="REFUND MY SUPER" className="z-50" />
+      </div>
+
+      {/* Copyright - Bottom Center */}
+      <div className="relative z-50 pb-8">
+        <p className="text-center text-sm text-gray-600">
+          &copy; {new Date().getFullYear()} Refund My Super. All rights
+          reserved.{" "}
+          <a
+            href="https://dobaato.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#0095eb] transition-colors"
+          >
+            Dobaato Info Tech Pvt Ltd.
+          </a>
+        </p>
       </div>
 
       <FooterBackgroundGradient />
