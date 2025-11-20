@@ -147,7 +147,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={isContentInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed"
+            className="text-xl md:text-xl text-gray-600 mb-8 leading-relaxed"
           >
             RefundMySuper is an Australian owned CPA registered public practice
             with over 5 years of experience helping Australians claim their
@@ -164,7 +164,7 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 onClick={() => setIsCalculatorOpen(true)}
-                className="text-xl font-bold shadow-2xl relative overflow-hidden group/btn h-16 px-10 rounded-xl"
+                className="text-base font-semibold shadow-2xl relative overflow-hidden group/btn h-16 px-10 rounded-xl"
                 variant="accent"
               >
                 <motion.span
@@ -179,7 +179,7 @@ export default function HeroSection() {
                   <motion.span
                     animate={{ x: [0, 6, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
-                    className="text-2xl"
+                    className="text-xl"
                   >
                     →
                   </motion.span>
@@ -191,7 +191,7 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-xl font-bold h-16 px-10 rounded-xl border-2 hover:bg-[#0095eb] hover:text-white hover:border-[#0095eb] transition-all duration-300"
+                className="text-base font-semibold h-16 px-10 rounded-xl border-2 hover:bg-[#0095eb] hover:text-white hover:border-[#0095eb] transition-all duration-300"
               >
                 Learn More
               </Button>

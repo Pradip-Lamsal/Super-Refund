@@ -1,89 +1,64 @@
 "use client";
 
-import {
-  RulerCarousel,
-  type CarouselItem,
-} from "@/components/ui/ruler-carousel";
-import { motion } from "framer-motion";
-import {
-  ArrowLeftRight,
-  ClipboardCheck,
-  DollarSign,
-  FileText,
-  Send,
-} from "lucide-react";
+import { FeatureSteps } from "@/components/ui/feature-steps";
 
 export default function HowItWorksSection() {
-  const carouselSteps: CarouselItem[] = [
+  const features = [
     {
-      id: 1,
+      step: "Step 1",
       title: "Application to Us",
-      description:
+      content:
         "You send application to us. Your application will include fundamental information like: Name, Estimated Super, Which Super Company are you with.",
-      icon: <FileText className="w-10 h-10 text-gray-900" />,
+      image:
+        "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop",
     },
     {
-      id: 2,
+      step: "Step 2",
       title: "Application to ATO",
-      description:
-        "As your registered tax agent we lodge DASP request to the ATO",
-      icon: <ArrowLeftRight className="w-10 h-10 text-gray-900" />,
+      content: "As your registered tax agent we lodge DASP request to the ATO",
+      image:
+        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop",
     },
     {
-      id: 3,
+      step: "Step 3",
       title: "Application to Superfund",
-      description:
+      content:
         "As your authorized representative we lodge the application on your behalf to superfund.",
-      icon: <ClipboardCheck className="w-10 h-10 text-gray-900" />,
+      image:
+        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop",
     },
     {
-      id: 4,
+      step: "Step 4",
       title: "ATO instructs Super-Fund",
-      description:
+      content:
         "ATO instructs your superfund to release the money to you based on your eligibility and application.",
-      icon: <Send className="w-10 h-10 text-gray-900" />,
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     },
     {
-      id: 5,
+      step: "Step 5",
       title: "Money to your Account",
-      description:
+      content:
         "Superfund releases the money into your nominated bank account or issues you a cheque.",
-      icon: <DollarSign className="w-10 h-10 text-gray-900" />,
+      image:
+        "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=2071&auto=format&fit=crop",
     },
   ];
 
   return (
     <section
       id="how-it-works"
-      className="py-20 bg-white relative overflow-hidden"
+      className="py-16 md:py-20 bg-white relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-pattern-dots opacity-30" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0f6f3a] mb-4">
-            How it Works?
-          </h2>
-          <p className="text-gray-600 text-lg mt-4">
-            Navigate through the steps using arrow keys or buttons
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          <RulerCarousel originalItems={carouselSteps} />
-        </motion.div>
+      <div className="relative z-10">
+        <FeatureSteps
+          features={features}
+          title="How it Works?"
+          autoPlayInterval={4000}
+        />
       </div>
     </section>
   );

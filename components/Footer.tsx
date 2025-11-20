@@ -69,7 +69,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
           {/* Brand section */}
           <div className="flex flex-col space-y-4">
-            <div className="flex flex-col items-center space-y-2">
+            <div className="flex flex-col items-start space-y-2">
               <Image
                 src="/Logo.png"
                 alt="Refund My Super"
@@ -78,7 +78,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-            <p className="text-sm leading-relaxed text-gray-600 ml-3">
+            <p className="text-sm leading-relaxed text-gray-600">
               Helping Australians claim their super refunds with over 5 years of
               experience in the industry.
             </p>

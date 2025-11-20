@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Particles } from "@/components/ui/particles";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function ContactSection() {
   return (
@@ -21,40 +21,54 @@ export default function ContactSection() {
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <div className="relative w-full rounded-2xl overflow-hidden shadow-xl">
-            <div className="relative h-[200px] md:h-[250px]">
-              <Image
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&h=300&fit=crop"
-                alt="Quick and easy refund"
-                fill
-                className="object-cover"
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-lg bg-white">
+            <div className="relative h-[180px] md:h-[200px]">
+              {/* Particles Background */}
+              <Particles
+                className="absolute inset-0"
+                quantity={120}
+                ease={80}
+                color="#0095eb"
+                refresh
               />
 
               {/* Overlay content */}
-              <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-transparent flex items-center">
+              <div className="absolute inset-0 flex items-center">
                 <div className="container mx-auto px-8 md:px-12">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
-                    <motion.h2
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2, duration: 0.6 }}
-                      className="text-4xl md:text-5xl lg:text-6xl font-bold text-white"
-                    >
-                      Quick & Easy Refund
-                    </motion.h2>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-8">
+                    <div className="relative z-10">
+                      <motion.h2
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2"
+                      >
+                        Quick & Easy Refund
+                      </motion.h2>
+                      <motion.p
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                        className="text-sm md:text-base text-gray-600"
+                      >
+                        Get your super refund processed in just a few simple
+                        steps
+                      </motion.p>
+                    </div>
 
                     <motion.div
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.4, duration: 0.6 }}
-                      className="shrink-0"
+                      className="shrink-0 relative z-10"
                     >
                       <Button
-                        size="xl"
+                        size="lg"
                         variant="accent"
-                        className="text-xl px-12 whitespace-nowrap"
+                        className="text-lg px-10 whitespace-nowrap"
                       >
                         Apply Now
                       </Button>
